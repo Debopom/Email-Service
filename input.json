@@ -1,0 +1,15 @@
+{
+  "to": [
+    "yokoshai53@gmail.com"
+  ],
+  "subject": "Account Creation",
+  "template_name": "account_creation.html",
+  "template_data": {
+    "username": "Alice",
+    "site_name": "MyApp",
+    "activation_link": "https://myapp.com/activate/abc123",
+    "reset_link": "https://myapp.com/reset/xyz789",
+    "expires_in": 30
+  }
+  
+}

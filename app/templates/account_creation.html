@@ -1,0 +1,22 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Welcome to {{ site_name }}</title>
+    <style>
+      body { font-family: Arial, sans-serif; line-height: 1.6; }
+      .container { max-width: 600px; margin: auto; padding: 20px; }
+      .btn { display: inline-block; padding: 10px 20px; margin-top: 20px;
+             background-color: #28a745; color: white; text-decoration: none; border-radius: 5px; }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Hi {{ username }},</h1>
+      <p>Welcome to {{ site_name }}! Please click the button below to activate your account:</p>
+      <a href="{{ activation_link }}" class="btn">Activate Account</a>
+      <p>If you didn’t sign up, please ignore this email.</p>
+      <hr />
+    </div>
+  </body>
+</html>

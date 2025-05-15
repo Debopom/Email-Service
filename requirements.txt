@@ -5,3 +5,4 @@ email-validator
 httpx
 pytest
 sendgrid
+pydantic_settings
