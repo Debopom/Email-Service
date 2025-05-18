@@ -15,11 +15,32 @@ A simple microservice to send emails via SMTP.
    pip install -r requirements.txt
    ```
 
-## Run
+## Run the API
+
+In one terminal, start FastAPI:
 
 ```bash
 uvicorn app.main:app --reload
 ```
+
+## Start Redis
+
+Make sure Redis is running:
+
+```bash
+redis-cli ping   # responds PONG
+```
+
+> *If Redis isn't installed, install via `sudo apt install redis-server` and start with `sudo service redis-server start`.*
+
+## Start Celery Worker
+
+In a second terminal (with virtualenv active), launch Celery:
+
+```bash
+celery -A app.core.celery:celery_app worker --loglevel=info
+```
+
 
 ## Send Email (Plain Text or HTML Body)
 

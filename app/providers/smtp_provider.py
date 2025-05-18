@@ -5,10 +5,12 @@ from socket import gaierror
 from email.message import EmailMessage
 import mimetypes
 import os
-
+import logging
 from app.core.config import settings
 from app.providers.base_provider import EmailProvider
 from app.schemas.email_schema import EmailRequest
+
+logger = logging.getLogger("email_service")
 
 class SMTPProvider(EmailProvider):
     def __init__(self, config):
@@ -55,6 +57,7 @@ class SMTPProvider(EmailProvider):
                     server.starttls()
                 server.login(self.user, self.pwd)
                 server.send_message(msg)
+                logger.info(f"send_email called with to={req.to}, subject={req.subject}, template={req.template_name}")
         except gaierror as e:
             raise RuntimeError(f"DNS resolution failed: {e}")
         except smtplib.SMTPException as e:

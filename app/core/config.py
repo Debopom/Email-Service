@@ -1,5 +1,4 @@
 from pydantic_settings import BaseSettings
-from pydantic import EmailStr
 
 class Settings(BaseSettings):
     SMTP_HOST: str
@@ -7,6 +6,8 @@ class Settings(BaseSettings):
     SMTP_USER: str
     SMTP_PASSWORD: str
     USE_TLS: bool = True
+    CELERY_BROKER_URL: str
+    CELERY_RESULT_BACKEND: str
 
     class Config:
         env_file = ".env"
